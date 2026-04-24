@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
 
-    <ListView
-        android:id="@+id/channel_list"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:background="#111"
-        android:focusable="true"
-        android:focusableInTouchMode="true"/>
-
-    <FrameLayout
+    <!-- VIDEO -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/player_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/player_view"
+    <!-- WEB PLAYER -->
+    <WebView
+        android:id="@+id/webPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <!-- MENU LATERAL -->
+    <LinearLayout
+        android:id="@+id/menu_panel"
+        android:orientation="vertical"
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btnRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="40dp"
+            android:text="Actualizar"
+            android:textSize="12sp"
+            android:nextFocusDown="@id/channel_list"
+            android:descendantFocusability="afterDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
-        <WebView
-            android:id="@+id/webPlayer"
+        <ListView
+            android:id="@+id/channel_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:focusable="false"
-            android:focusableInTouchMode="false"/>
+            android:background="#111"
+            android:choiceMode="singleChoice"
+            android:listSelector="@drawable/channel_selector"
+            android:nextFocusUp="@id/btnRefresh"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
-    </FrameLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

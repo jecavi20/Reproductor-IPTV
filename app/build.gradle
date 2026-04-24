@@ -1,4 +1,4 @@
-/*
+/**
  * Mi IPTV Player
  * Autor: jecavi
  * Año: 2026
@@ -17,8 +17,8 @@ android {
         applicationId "com.example.tvplayer"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
     }
 
     buildTypes {
